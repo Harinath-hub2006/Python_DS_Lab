@@ -31,6 +31,13 @@ def postorder(node):
         postorder(node.right)
         print(node.value, end = " ")
 
+def height(node):
+    if node is None:
+        return -1
+    left_height = height(node.left)
+    right_height = height(node.right)
+    return 1 + max(left_height, right_height)
+
 root = None
 n = int(input("Enter the number of entries: "))
 for _ in range(n):
@@ -42,5 +49,7 @@ print("\nPreorder Traversal:")
 preorder(root)
 print("\nPostorder Traversal:")
 postorder(root)
+print("\nHeight of the Tree:", height(root))
 
         
+
